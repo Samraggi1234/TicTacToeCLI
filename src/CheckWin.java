@@ -38,7 +38,7 @@ class CheckWin {
 
 class CheckWinner extends CheckWin {
 
-    private boolean someoneWon = false;
+    static boolean someoneWon = false;
     private static byte boxFilled = 0;
     String Player1, Player2;
 
@@ -61,11 +61,11 @@ class CheckWinner extends CheckWin {
         boolean p1Try = p1Try(sT);
         boolean p2Try = p2Try(sT);
         if (p1Try && !(p2Try)) {
-            this.someoneWon = true;
+            CheckWinner.someoneWon = true;
             return this.Player1 + " Wins!!";
         }
         if (p2Try && !(p1Try)) {
-            this.someoneWon = true;
+            CheckWinner.someoneWon = true;
             return this.Player2 + " Wins!!";
         }
         return ((!someoneWon) && (boxFilled == 9)) ? "Match Tied. No Winner!!" : "Go On.";
