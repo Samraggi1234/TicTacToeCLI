@@ -4,15 +4,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-        // scoretable 2d array,
-        char[][] scoreTable = {
-            {' ', ' ', ' '},
-            {' ', ' ', ' '},
-            {' ', ' ', ' '},
-        };
         
-        // co-ordinates to fill in scoretable
-        // int[] coord = new int[2];
+        
         Scanner in = new Scanner(System.in);
 
         short choice = 0;
@@ -23,22 +16,22 @@ public class Main {
                 "3. Exit\n"
             );
 
+            // scoretable 2d array,
+            char[][] scoreTable = {
+                {' ', ' ', ' '},
+                {' ', ' ', ' '},
+                {' ', ' ', ' '},
+            };
             
             choice = in.nextShort();
             Board board = new Board();
             CheckWinner winner = new CheckWinner(); 
             switch (choice) {
                 case 1:
-                    // System.out.println("\033[H\033[2J");
-                    // System.out.flush();
                     System.out.println("Enter Player1 Name: ");
-                    // String Player1 = in.next();
                     winner.Player1 = in.next();
                     System.out.println("Enter Player2 Name: ");
-                    // String Player2 = in.next();
                     winner.Player2 = in.next();
-                    // winner.Player1 = Player1;
-                    // winner.Player2 = Player2;
                     short count = 0;
                     while ((CheckWinner.someoneWon == false) && (count < 9)) {
                         System.out.println("\033[H\033[2J");
@@ -50,6 +43,7 @@ public class Main {
                             short X_coord = in.nextShort();
                             System.out.println("Print Y coordinate: ");
                             short Y_coord = in.nextShort();
+                            if (X_coord > 2 || Y_coord > 2) continue;
                             if (scoreTable[X_coord][Y_coord] == ' '){
                                 scoreTable[X_coord][Y_coord] = 'X';
                                 count++;
@@ -61,6 +55,7 @@ public class Main {
                             short X_coord = in.nextShort();
                             System.out.println("Print Y coordinate: ");
                             short Y_coord = in.nextShort();
+                            if (X_coord > 2 || Y_coord > 2) continue;
                             if (scoreTable[X_coord][Y_coord] == ' ')
                             {
                                 scoreTable[X_coord][Y_coord] = 'O';
